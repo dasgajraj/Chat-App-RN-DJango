@@ -1,11 +1,7 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import Splash from "./src/screens/Splash";
+import Splash from "./screens/Splash";
 const App = () => {
-  return (
-     <Splash />
-  );
+  return <Splash />;
 };
 
 export default App;
-

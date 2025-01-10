@@ -1,6 +1,6 @@
 run:
 	@echo 'staring FrontEnd'
-	@call cd Frontend && npm start
+	@call cd Frontend && npm start --web
 
 start:
 	@echo "Activating virtual environment and starting Django server..."
