@@ -25,6 +25,7 @@ const App = () => {
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
       <Stack.Navigator>
+        <Stack.Screen name='Home' component={HomeScreen} />
         {!initialized ? (
           <>
             <Stack.Screen name="Splash" component={SplashScreen} />
