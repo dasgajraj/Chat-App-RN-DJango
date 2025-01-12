@@ -12,7 +12,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const Stack = createNativeStackNavigator();
 const App = () => {
   const [initialized,setInitialized] = useState(false);
-  const [authenticated] = useState(false);
+  const [authenticated] = useState(true);
 
   useEffect(()=>{
     const timer = setTimeout(() => {
@@ -25,7 +25,6 @@ const App = () => {
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={HomeScreen} />
         {!initialized ? (
           <>
             <Stack.Screen name="Splash" component={SplashScreen} />
