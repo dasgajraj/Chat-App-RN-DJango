@@ -12,7 +12,7 @@ import {
 import RequestScreen from "./Requests";
 import FriendsScreen from "./Friends";
 import ProfileScreen from "./Profile";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Image, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,14 +26,20 @@ const HomeScreen = ({ navigation }) => {
   return (
     <Tab.Navigator
       screenOptions={({ route, navigation }) => ({
+        headerLeft: () => (
+          <View style={{ marginHorizontal: 10 }}>
+            <Image
+              source={require("../assets/images/user.png")}
+              style={{ width: 28, height: 28, borderRadius: 14, backgroundColor:'#e0e0e0' }}
+            />
+          </View>
+        ),
+
         headerRight: () => (
-          <TouchableOpacity
-            onPress={() => {
-            }}
-          >
+          <TouchableOpacity onPress={() => { }}>
             <FontAwesomeIcon
-            style={{marginRight: 20 }}
-              icon={faSearch} 
+              style={{ marginRight: 20 }}
+              icon={faSearch}
               size={22}
               color="#404040"
             />
