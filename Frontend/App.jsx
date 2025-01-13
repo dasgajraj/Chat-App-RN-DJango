@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from "react";
+
+import "./core/fontawesome";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import SplashScreen from "./screens/Splash";
 import SignInScreen from "./screens/SignIn";
 import SignUpScreen from "./screens/SignUp";
 import HomeScreen from "./screens/Home";
 import SearchScreen from "./screens/Search";
 import MessagesScreen from "./screens/Message";
-import { NavigationContainer } from "@react-navigation/native";
-import { Alert, StatusBar } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StatusBar } from "react-native";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
-  const [initialized,setInitialized] = useState(false);
+  const [initialized, setInitialized] = useState(false);
   const [authenticated] = useState(true);
 
-  useEffect(()=>{
+  useEffect(() => {
     const timer = setTimeout(() => {
       setInitialized(true);
-      }, 2000);
-      return () => clearTimeout(timer);
-      }, []);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <NavigationContainer>

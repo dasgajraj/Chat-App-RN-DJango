@@ -1,4 +1,5 @@
 package com.anonymous.Frontend
+import android.os.Bundle;
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
@@ -9,7 +10,7 @@ import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 
-import expo.modules.ReactActivityDelegateWrapper
+import expo.mod
 
 class MainActivity : ReactActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,4 +63,7 @@ class MainActivity : ReactActivity() {
       // because it's doing more than [Activity.moveTaskToBack] in fact.
       super.invokeDefaultOnBackPressed()
   }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(null)
+    }
 }
