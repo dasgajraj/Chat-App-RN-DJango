@@ -1,6 +1,6 @@
 run:
 	@echo 'staring FrontEnd'
-	@call cd Frontend && npx expo start --android
+	@call cd Frontend && npx expo start 
 
 start:
 	@echo "Activating virtual environment and starting Django server..."
