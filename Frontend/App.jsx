@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "./core/fontawesome";
 
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import SplashScreen from "./screens/Splash";
@@ -13,10 +13,19 @@ import SearchScreen from "./screens/Search";
 import MessagesScreen from "./screens/Message";
 import { StatusBar } from "react-native";
 
+const LightTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: 'white'
+  }
+}
+
+
 const Stack = createNativeStackNavigator();
 const App = () => {
   const [initialized, setInitialized] = useState(false);
-  const [authenticated] = useState(true);
+  const [authenticated] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,7 +35,7 @@ const App = () => {
   }, []);
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={LightTheme}>
       <StatusBar barStyle="dark-content" />
       <Stack.Navigator>
         {!initialized ? (

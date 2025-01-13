@@ -9,6 +9,7 @@ const Title = ({ text, color }) => {
         textAlign: "center",
         fontSize: 50,
         fontFamily: "AppleFont",
+        marginBottom: 30
       }}
     >
       {text}

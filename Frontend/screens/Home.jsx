@@ -30,7 +30,7 @@ const HomeScreen = ({ navigation }) => {
           <View style={{ marginHorizontal: 10 }}>
             <Image
               source={require("../assets/images/user.png")}
-              style={{ width: 28, height: 28, borderRadius: 14, backgroundColor:'#e0e0e0' }}
+              style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: '#e0e0e0' }}
             />
           </View>
         ),
