@@ -13,6 +13,7 @@ import Title from '@/common/Title'
 import Button from '@/common/Button'
 import Input from '@/common/Input'
 
+
 const SignUpScreen = ({ navigation }) => {
   const [username, setUsername] = useState('')
   const [firstName, setFirstName] = useState('')

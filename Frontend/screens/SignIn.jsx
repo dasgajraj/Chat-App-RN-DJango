@@ -5,13 +5,16 @@ import {
   SafeAreaView,
   Text,
   TouchableWithoutFeedback,
-  View } from 'react-native'
+  View
+} from 'react-native'
 import React, {
   useLayoutEffect,
-  useState } from 'react'
+  useState
+} from 'react'
 import Title from '../common/Title'
 import Button from '../common/Button'
 import Input from '../common/Input'
+import api from '../core/api'
 
 const SignInScreen = ({ navigation }) => {
   const [username, setUsername] = useState('')
@@ -46,9 +49,30 @@ const SignInScreen = ({ navigation }) => {
       return
     }
     // Do SignIn
-    console.log('SignIn Done', username, " and ", password)
     // ...
-
+    api({
+      method: 'POST',
+      url: '/chat/signin/',
+      data:{
+        username : username,
+        password : password
+      }
+    })
+    .then(response=>{
+      console.log('Sign In Attempted: ', response)
+    })
+    .catch(error=>{
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    })
   }
 
   return (
