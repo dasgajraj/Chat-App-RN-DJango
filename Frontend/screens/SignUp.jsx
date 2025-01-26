@@ -1,5 +1,14 @@
-import { Alert, SafeAreaView, Text, View } from 'react-native'
-import React, { useLayoutEffect, useState } from 'react'
+import { Alert, 
+  KeyboardAvoidingView, 
+  Keyboard,
+  SafeAreaView, 
+  Text, 
+  TouchableWithoutFeedback, 
+  View 
+} from 'react-native'
+import React, { 
+  useLayoutEffect, 
+  useState } from 'react'
 import Title from '@/common/Title'
 import Button from '@/common/Button'
 import Input from '@/common/Input'
@@ -56,6 +65,8 @@ const SignUpScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <KeyboardAvoidingView style={{ flex:1}}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 16 }}>
         <Title text="Sign Up" />
 
@@ -128,6 +139,8 @@ const SignUpScreen = ({ navigation }) => {
           </Text>
         </Text>
       </View>
+      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }

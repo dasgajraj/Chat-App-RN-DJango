@@ -1,5 +1,14 @@
-import { Alert, SafeAreaView, Text, View } from 'react-native'
-import React, { useLayoutEffect, useState } from 'react'
+import {
+  Alert,
+  Keyboard,
+  KeyboardAvoidingView,
+  SafeAreaView,
+  Text,
+  TouchableWithoutFeedback,
+  View } from 'react-native'
+import React, {
+  useLayoutEffect,
+  useState } from 'react'
 import Title from '../common/Title'
 import Button from '../common/Button'
 import Input from '../common/Input'
@@ -18,7 +27,7 @@ const SignInScreen = ({ navigation }) => {
   }, [])
 
   function onSignIn() {
-    
+
     //Check username
     const faultUsername = !username
     {
@@ -44,52 +53,56 @@ const SignInScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          paddingHorizontal: 20
-        }}
-      >
-        <Title
-          text='Realtime Chat'
-          color='black'
-        />
-        <Input
-          title='Username'
-          inTitle='abc_xyz'
-          type='default'
-          hidden={false}
-          value={username}
-          error={usernameError}
-          setValue={setUsername}
-          setError={setUsernameError}
-        />
-        <Input
-          title='Password'
-          inTitle='********'
-          type='default'
-          hidden={true}
-          value={password}
-          error={passwordError}
-          setValue={setPassword}
-          setError={setPasswordError}
-        />
-
-        <Button
-          title='Sign In'
-          fn={onSignIn}
-        />
-
-        <Text style={{ textAlign: 'center', marginTop: 40 }} >
-          Don't Have an account ? <Text
-            style={{ color: 'blue' }}
-            onPress={() => navigation.navigate('SignUp')}
+      <KeyboardAvoidingView style={{ flex: 1 }}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              paddingHorizontal: 20
+            }}
           >
-            Sign Up
-          </Text>
-        </Text>
-      </View>
+            <Title
+              text='Realtime Chat'
+              color='black'
+            />
+            <Input
+              title='Username'
+              inTitle='abc_xyz'
+              type='default'
+              hidden={false}
+              value={username}
+              error={usernameError}
+              setValue={setUsername}
+              setError={setUsernameError}
+            />
+            <Input
+              title='Password'
+              inTitle='********'
+              type='default'
+              hidden={true}
+              value={password}
+              error={passwordError}
+              setValue={setPassword}
+              setError={setPasswordError}
+            />
+
+            <Button
+              title='Sign In'
+              fn={onSignIn}
+            />
+
+            <Text style={{ textAlign: 'center', marginTop: 40 }} >
+              Don't Have an account ? <Text
+                style={{ color: 'blue' }}
+                onPress={() => navigation.navigate('SignUp')}
+              >
+                Sign Up
+              </Text>
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }
