@@ -15,6 +15,7 @@ import Title from '../common/Title'
 import Button from '../common/Button'
 import Input from '../common/Input'
 import api from '../core/api'
+import utils from '../core/utils'
 
 const SignInScreen = ({ navigation }) => {
   const [username, setUsername] = useState('')
@@ -59,11 +60,13 @@ const SignInScreen = ({ navigation }) => {
       }
     })
     .then(response=>{
-      console.log('Sign In Attempted: ', response)
+      utils.log('Sign In Attempted: ', response.data)
     })
     .catch(error=>{
-      if (error.response) {
-        console.log(error.response.data);
+      console.log(error)
+      if (error.response) 
+        {
+          console.log(error.response.data);
         console.log(error.response.status);
         console.log(error.response.headers);
       } else if (error.request) {
@@ -72,7 +75,8 @@ const SignInScreen = ({ navigation }) => {
         console.log('Error', error.message);
       }
       console.log(error.config);
-    })
+   }
+  )
   }
 
   return (

@@ -7,10 +7,14 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserSerializer 
 
 def get_auth_for_user(user):
-   # token = RefreshToken.for_user(user)
+    tokens = RefreshToken.for_user(user)
+    print('Tokens: ',type(tokens), tokens)
     return {
-        'user': UserSerializer(user).data
-       
+        'user': UserSerializer(user).data,
+        'tokens': {
+            'access': str(tokens.access_token),
+            'refresh': str(tokens),
+        }
     }
 
 
